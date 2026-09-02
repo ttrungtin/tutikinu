@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tắt browser tự khôi phục vị trí cuộn cũ khi vào lại trang — phải chạy sớm nhất
+   có thể (trước khi trình duyệt áp scroll restoration), nên đặt ngay đầu <head>. */
+if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+</script>
 <title>Trung Tín &amp; Kim Như — Thiệp cưới 20.09.2026</title>
 <meta name="description" content="Trân trọng kính mời bạn đến dự lễ thành hôn của Trung Tín & Kim Như — Chủ nhật, 20.09.2026 tại Marina Bay Vũng Tàu.">
 <!-- TODO: thay bằng link thật sau khi đăng lên web -->
@@ -750,9 +755,11 @@ if(AUDIO_URL){
 const intro=el('intro');
 const heroBg=document.querySelector('#hero .bg');
 if(heroBg) intro.querySelector('.intro-bg').style.backgroundImage=`url("${heroBg.currentSrc||heroBg.src}")`;
+scrollTo(0,0);
 const openIntro=()=>{
   intro.classList.add('hide');
   document.body.classList.remove('locked');
+  scrollTo(0,0);
   startMusic();
 };
 intro.addEventListener('click',openIntro,{once:true});
