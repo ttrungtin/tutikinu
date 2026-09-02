@@ -66,7 +66,9 @@ section{position:relative;padding:64px 26px}
 .bloom{position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none;z-index:0}
 
 /* ---------- hero ---------- */
-#hero{height:100svh;min-height:560px;padding:0;display:grid;place-items:center;position:relative;overflow:hidden}
+/* ẩn hero: trang chờ (#intro) đã có đủ tên/ngày, giữ lại DOM vì #intro .bg vẫn
+   dùng ảnh trong #hero .bg (gán qua JS) làm nền */
+#hero{display:none}
 /* Ảnh nền hero, làm mờ phía sau chữ.
    scale(1.18) là bắt buộc: filter blur lấy mẫu cả vùng ngoài biên ảnh nên 4 mép bị
    nhoè trong suốt, phóng to nhẹ sẽ đẩy phần mép hỏng đó ra ngoài khung nhìn. */
@@ -654,7 +656,7 @@ function initPetals(id){
     size(); seed();
   });
 }
-if(!reduce){ initPetals('petals'); initPetals('intro-petals'); }
+if(!reduce){ initPetals('intro-petals'); }
 
 /* ---- lightbox ---- */
 const imgs=[...document.querySelectorAll('#grid img')], lb=el('lb'), lbi=el('lb-img'), cnt=el('lb-cnt');
