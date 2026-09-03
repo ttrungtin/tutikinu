@@ -743,7 +743,7 @@ el('again').addEventListener('click', ()=>{
 let startMusic=()=>{};
 if(AUDIO_URL){
   const btn=el('music'); btn.style.display='flex';
-  const au=new Audio(AUDIO_URL); au.loop=true; au.volume=.45;
+  const au=new Audio(AUDIO_URL); au.loop=true; au.volume=.25;
   let on=true;
   const sync=()=>{ btn.textContent=on?'♫':'♪';
     btn.setAttribute('aria-label', on?'Tắt nhạc nền':'Bật nhạc nền'); };
